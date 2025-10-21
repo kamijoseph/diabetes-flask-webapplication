@@ -56,6 +56,12 @@ def predict():
             "prediction": "diabetic" if prediction[0] == 1 else "non diabetic"
         }
 
+        return jsonify(response)
 
-    except:
-        pass
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
+
+if __name__ == "__main__":
+    app.run(debug=True)
